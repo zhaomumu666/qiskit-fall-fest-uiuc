@@ -63,11 +63,25 @@ a {
 
 
 .brand {
-
     display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-    flex-direction: column;
+.uiuc-logo {
+    height: 42px;
+    width: auto;
+}
 
+.qiskit-logo {
+    height: 32px;
+    width: auto;
+}
+
+.brand-divider {
+    width: 1px;
+    height: 32px;
+    background-color: #d0d0d0;
 }
 
 
