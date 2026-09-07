@@ -106,24 +106,28 @@ a {
 
 /* ================================
    HERO SECTION STYLES
-   Full-screen landing section with page-load fade animation
+   Full-screen landing section with page-load fade + slide-up entrance animation
 ================================ */
 .hero {
-    min-height: 100vh; /* Make hero fill full viewport height */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    opacity: 0; /* Initial hidden state for entrance animation */
-    transform: translateY(20px); /* Start position: slightly shifted down */
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Animation timing */
+
+    /* Initial animation state: hidden and offset down */
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+
     background: #ffffff;
     color: var(--il-blue);
 }
 
+/* Final state: triggered AFTER full page load */
 .hero.hero-fade-ready {
-    opacity: 1; /* Final visible state */
-    transform: translateY(0); /* Move element back to original position */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-content-centered {
@@ -140,7 +144,7 @@ a {
 }
 
 .hero h1 {
-    font-size: clamp(48px, 7vw, 110px); /* Responsive font size: min / preferred / max */
+    font-size: clamp(48px, 7vw, 110px);
     line-height: 0.95;
     margin-bottom: 35px;
     letter-spacing: -2px;
