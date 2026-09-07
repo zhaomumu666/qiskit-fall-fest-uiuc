@@ -8,6 +8,39 @@
     <!-- UIUC Official Brand CSS -->
     <link rel="stylesheet" href="https://cdn.brand.illinois.edu/illinois.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ============================================== */
+        /* Page Load & Scroll Reveal Animation Definitions */
+        /* ============================================== */
+        /* Base state for scroll reveal elements: hidden and offset downwards */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* Active state: animate into view when element enters viewport */
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Hero section initial hidden state for page load animation */
+        .hero-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        /* Hero final visible state, triggered after page fully loaded */
+        .hero-load.hero-fade-ready {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Schedule footnote styling for tentative notice */
+        .schedule-note {
+            margin-top: 30px;
+            color: var(--il-storm);
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,7 +85,8 @@
     </header>
 
     <main>
-        <!-- HERO: Full centered, removed right stack, page load fade-in animation -->
+        <!-- HERO: Full centered hero section
+             Page load fade-in animation: content is hidden on initial load, animates in after page ready -->
         <section class="hero hero-load">
             <div class="hero-content-centered">
                 
@@ -89,7 +123,8 @@
             </div>
         </section>
 
-        <!-- NEW PAGE 2: HOST / ORGANIZATION INTRO -->
+        <!-- PAGE 2: HOST / ORGANIZATION INTRO
+             Class "reveal" enables scroll animation: animates when scrolling into view -->
         <section id="hosts" class="section reveal">
             <p class="section-number section-number-lrage">01 / HOSTS</p>
             <h2>Organized by</h2>
@@ -108,7 +143,8 @@
             </div>
         </section>
 
-        <!-- PAGE 3: WHY THIS EVENT, enlarged section label -->
+        <!-- PAGE 3: WHY THIS EVENT
+             Class "reveal" enables scroll animation -->
         <section id="about" class="section about reveal">
             <p class="section-number section-number-large">02 / WHY THIS EVENT</p>
             <h2>We focus on quantum computing.</h2>
@@ -123,7 +159,9 @@
             </p>
         </section>
 
-        <!-- PAGE4: THE EXPERIENCE / EVENT LIST, enlarged section label, 6 activity rows -->
+        <!-- PAGE4: THE EXPERIENCE / EVENT LIST
+             Class "reveal" enables scroll animation
+             Session schedule with tentative notice at bottom -->
         <section id="experience" class="section experience reveal">
             <p class="section-number section-number-large">03 / THE EXPERIENCE</p>
             <h2>Session schedule</h2>
@@ -195,12 +233,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Note: Schedule information is tentative, subject to change, follow Discord for latest updates -->
             <p class="schedule-note">
     *All schedule details are tentative and subject to change. Final updates will be announced in our Discord server.
             </p>
         </section>
 
-        <!-- PAGE5: GUEST SPEAKERS, enlarged section label, two speakers photo + bio -->
+        <!-- PAGE5: GUEST SPEAKERS
+             Class "reveal" enables scroll animation -->
         <section id="speakers" class="section speaker-section reveal">
             <p class="section-number section-number-large">04 / GUEST SPEAKERS</p>
             <h2>Speakers</h2>
@@ -224,7 +264,8 @@
             </div>
         </section>
 
-        <!-- PAGE6: REGISTER, added Discord button -->
+        <!-- PAGE6: REGISTER, added Discord button
+             Class "reveal" enables scroll animation -->
         <section id="register" class="register-section reveal">
             <p>READY TO START?</p>
             <h2>Enter the quantum world.</h2>
@@ -249,7 +290,8 @@
             </p>
         </section>
 
-        <!-- PAGE7: ORGANIZERS: Lead + Co-organizer with emails -->
+        <!-- PAGE7: ORGANIZERS: Lead + Co-organizer with emails
+             Class "reveal" enables scroll animation -->
         <section id="organizers" class="section organizers reveal">
             <p class="section-number">05 / ORGANIZERS</p>
             <h2>Meet the team.</h2>
@@ -284,12 +326,14 @@
         </div>
     </footer>
 
-<!-- JS: Hero load fade-in + scroll background color + section scroll reveal -->
+<!-- ====================================================== -->
+<!-- Javascript: Page load animation, scroll background gradient, IntersectionObserver reveal -->
+<!-- ====================================================== -->
 <script>
-// Hero entrance animation on page load
+// Trigger hero entrance animation after page fully loaded
 document.querySelector('.hero-load').classList.add('hero-fade-ready');
 
-// Dynamic background color stops: lightened range, blue -> orange on scroll
+// Define color stops for smooth body background color transition on scroll
 const bgColors = [
     { top: 0,    color: [80, 110, 160] },
     { top: 0.2,  color: [160, 180, 210] },
@@ -298,8 +342,10 @@ const bgColors = [
     { top: 1,    color: [255, 170, 120] }
 ];
 
+// Linear interpolation function to smoothly blend RGB color values
 function lerp(a, b, t) { return a + (b - a) * t; }
 
+// Calculate scroll progress and update page background color
 function updateBackground() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -317,18 +363,20 @@ function updateBackground() {
     document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
-// Scroll reveal observer
+// Setup IntersectionObserver: detect when .reveal elements enter viewport and add visible class
 function setupReveal() {
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12 }); // threshold: trigger animation when 12% of element enters viewport
     reveals.forEach(el => observer.observe(el));
 }
 
+// Bind scroll listener for background color change
 window.addEventListener('scroll', updateBackground, { passive:true });
+// Initialize background color and reveal observer once page finishes loading
 window.addEventListener('load', () => {
     updateBackground();
     setupReveal();
