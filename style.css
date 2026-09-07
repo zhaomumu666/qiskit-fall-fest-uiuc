@@ -297,6 +297,11 @@ a {
     margin-top:12px;
     color: var(--il-storm);
 }
+.schedule-note {
+    margin-top: 30px;
+    color: var(--il-storm);
+    font-size: 16px;
+}
 
 /* ================================
    SPEAKER
