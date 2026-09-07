@@ -1,5 +1,6 @@
 /* ================================
-   GLOBAL
+   GLOBAL STYLES
+   Basic page reset and base body settings
 ================================ */
 * {
     box-sizing: border-box;
@@ -8,24 +9,25 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Enable smooth native scroll for anchor links */
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #13294B; /* UIUC blue, initial color */
+    background: #13294B; /* UIUC primary blue, initial page background color */
     color: var(--il-storm-10);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal page overflow */
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: inherit; /* Inherit text color from parent element */
 }
 
 /* ================================
-   NAVBAR
+   NAVBAR STYLES
+   Top navigation bar with logos, menu links and register button
 ================================ */
 .navbar {
     min-height: 85px;
@@ -38,18 +40,18 @@ a {
     border-bottom:
         1px solid
         var(--il-storm-80);
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.85); /* Semi-transparent white background */
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 16px; /* Spacing between logo items */
 }
 
 .uiuc-logo {
     height: 66px;
-    width: auto;
+    width: auto; /* Keep original image aspect ratio */
 }
 
 .club-logo {
@@ -65,7 +67,7 @@ a {
 .brand-divider {
     width: 1px;
     height: 32px;
-    background-color: #d0d0d0;
+    background-color: #d0d0d0; /* Vertical separator line between logos */
 }
 
 .brand-small {
@@ -82,16 +84,16 @@ a {
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 25px; /* Gap between navigation menu items */
     font-size: 14px;
 }
 
 .nav-links a {
-    color: var(--il-blue); /* dark nav text for light navbar */
+    color: var(--il-blue); /* Dark blue text for light navbar background */
 }
 
 .nav-links a:hover {
-    color: var(--il-orange);
+    color: var(--il-orange); /* Change text color to orange on mouse hover */
 }
 
 .register-button {
@@ -99,31 +101,30 @@ a {
     color: var(--il-blue);
     font-weight: 700;
     padding: 12px 20px;
-    border-radius: 12px; /* rounded corners */
+    border-radius: 12px; /* Rounded button corners */
 }
 
 /* ================================
-   HERO
+   HERO SECTION STYLES
+   Full-screen landing section with page-load fade animation
 ================================ */
 .hero {
-    min-height: 100vh;
+    min-height: 100vh; /* Make hero fill full viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    opacity: 0; /* Initial hidden state for entrance animation */
+    transform: translateY(20px); /* Start position: slightly shifted down */
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Animation timing */
     background: #ffffff;
     color: var(--il-blue);
 }
 
 .hero.hero-fade-ready {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Final visible state */
+    transform: translateY(0); /* Move element back to original position */
 }
-
-
 
 .hero-content-centered {
     max-width: 900px;
@@ -139,17 +140,12 @@ a {
 }
 
 .hero h1 {
-    font-size: clamp(48px, 7vw, 110px);
+    font-size: clamp(48px, 7vw, 110px); /* Responsive font size: min / preferred / max */
     line-height: 0.95;
     margin-bottom: 35px;
     letter-spacing: -2px;
     color: var(--il-orange);
 }
-
-   
-    color: var(--il-orange);
-}
-
 
 .hero-subtitle {
     font-size: clamp(22px,3vw,32px);
@@ -159,7 +155,7 @@ a {
 .hero-description {
     max-width: 600px;
     font-size: 20px;
-    margin: 0 auto 50px;
+    margin: 0 auto 50px; /* Center block with auto left/right margin */
 }
 
 .hero-details {
@@ -187,7 +183,7 @@ a {
     color: var(--il-blue);
     font-weight: bold;
     padding: 18px 28px;
-    border-radius: 12px; /* rounded corners */
+    border-radius: 12px; /* Rounded corners for main CTA button */
 }
 
 .hero-cta-row {
@@ -198,10 +194,11 @@ a {
 }
 
 /* ================================
-   GENERAL SECTION
+   GENERAL SECTION STYLES
+   Shared styling for all main content sections
 ================================ */
 .section {
-    padding: 120px 12%;
+    padding: 120px 12%; /* Vertical and horizontal padding for every section */
 }
 
 .section-number {
@@ -213,7 +210,7 @@ a {
 }
 
 .section-number-large {
-    font-size: 18px; /* enlarged section label */
+    font-size: 18px; /* Larger version of section index label */
 }
 
 .section h2 {
@@ -235,11 +232,12 @@ a {
 }
 
 /* ================================
-   HOST GRID (NEW: SIGQuantum + IBM Quantum)
+   HOST GRID STYLES
+   Card grid for SIGQuantum and IBM Quantum host introduction
 ================================ */
 .host-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); /* Auto responsive columns */
     gap: 3rem;
     margin-top: 3rem;
 }
@@ -262,7 +260,8 @@ a {
 }
 
 /* ================================
-   EXPERIENCE / SESSION LIST
+   EXPERIENCE / SESSION LIST STYLES
+   Timetable list for all event sessions
 ================================ */
 .experience {
 }
@@ -273,7 +272,7 @@ a {
 
 .session-item {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 150px 1fr; /* Fixed width for date, remaining space for content */
     gap: 40px;
     padding: 30px 0;
     border-bottom: 1px solid var(--il-storm-80);
@@ -304,7 +303,8 @@ a {
 }
 
 /* ================================
-   SPEAKER
+   SPEAKER SECTION STYLES
+   Layout for guest speaker profile cards
 ================================ */
 .speaker-section {
 }
@@ -321,7 +321,7 @@ a {
 }
 
 .speaker-placeholder {
-    aspect-ratio: 1;
+    aspect-ratio: 1; /* Force square box for placeholder image */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,7 +340,8 @@ a {
 }
 
 /* ================================
-   REGISTER
+   REGISTER SECTION STYLES
+   Bottom call-to-action section with register and discord buttons
 ================================ */
 .register-section {
     text-align: center;
@@ -373,13 +374,13 @@ a {
     color: white;
     padding: 22px 35px;
     font-weight: bold;
-    border-radius: 12px; /* rounded corners */
+    border-radius: 12px;
 }
 
 .secondary-button {
     background: transparent;
     color: var(--il-blue);
-    border: 2px solid var(--il-blue);
+    border: 2px solid var(--il-blue); /* Outline style for secondary button */
 }
 
 .register-note {
@@ -388,7 +389,8 @@ a {
 }
 
 /* ================================
-   ORGANIZERS
+   ORGANIZERS SECTION STYLES
+   Team member profile cards
 ================================ */
 .organizers {
 }
@@ -409,7 +411,7 @@ a {
 .organizer-photo {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
+    border-radius: 50%; /* Make photo circle shape */
     background: #13294B;
     color: #FF5F05;
     display: flex;
@@ -439,7 +441,8 @@ a {
 }
 
 /* ================================
-   FOOTER
+   FOOTER STYLES
+   Page footer with event info and university info
 ================================ */
 footer {
     background: var(--il-blue-darker-1);
@@ -456,6 +459,7 @@ footer strong {
 
 /* ================================
    ORGANIZATION / PARTNER LOGO SECTION
+   Logo display grid for partner organizations
 ================================ */
 .org-section {
 }
@@ -476,20 +480,22 @@ footer strong {
 
 /* ================================
    SCROLL REVEAL ANIMATION
+   Fade + slide-up animation for sections entering viewport
 ================================ */
 .reveal {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 0; /* Element hidden before animation trigger */
+    transform: translateY(40px); /* Element starts 40px lower */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Fully visible state */
+    transform: translateY(0); /* Move to normal position */
 }
 
 /* ================================
-   MOBILE
+   MOBILE RESPONSIVE MEDIA QUERY
+   Adjust layout for screen width under 800px
 ================================ */
 @media (max-width: 800px) {
     .navbar {
@@ -508,7 +514,7 @@ footer strong {
     }
 
     .session-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack items vertically on mobile */
         gap:10px;
     }
 
