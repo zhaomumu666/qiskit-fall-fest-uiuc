@@ -188,10 +188,9 @@
 
 
         <!-- ABOUT -->
-
 <section
-    id="schedule"
-    class="section schedule-section"
+    id="about"
+    class="section about reveal"
 >
 
 
@@ -242,7 +241,7 @@
 
         <section
             id="experience"
-            class="section experience"
+            class="section experience reveal"
         >
 
             <p class="section-number">
@@ -334,7 +333,7 @@
 
         <section
             id="schedule"
-            class="section schedule-section"
+            class="section schedule-section reveal"
         >
 
             <p class="section-number">
@@ -449,7 +448,7 @@
 
         <section
             id="speaker"
-            class="section speaker"
+            class="section speaker reveal"
         >
 
             <p class="section-number">
@@ -501,7 +500,7 @@
 
         <section
             id="challenge"
-            class="challenge-section"
+            class="challenge-section reveal"
         >
 
             <p>
@@ -543,7 +542,7 @@
 
         <!-- REGISTER -->
 
-        <section class="register-section">
+        <section class="register-section reveal">
 
             <p>
                 READY TO START?
@@ -578,7 +577,7 @@
 
 <!-- ORGANIZERS -->
 
-<section class="section organizers">
+<section id="organizers" class="section organizers reveal">
 
     <p class="section-number">
         07 / ORGANIZERS
@@ -683,6 +682,62 @@
 
     </footer>
 
+
+<script>
+
+const bgColors = [
+    { top: 0,    color: [19, 41, 75] },     // UIUC blue
+    { top: 0.15, color: [30, 60, 110] },     // lighter blue
+    { top: 0.35, color: [245, 245, 245] },   // light gray
+    { top: 0.55, color: [255, 255, 255] },   // white
+    { top: 0.75, color: [255, 244, 235] },   // warm cream
+    { top: 1,    color: [255, 95, 5] }        // UIUC orange
+];
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function updateBackground() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = Math.min(1, Math.max(0, scrollTop / docHeight));
+
+    // find which two color stops we're between
+    let i = 0;
+    while (i < bgColors.length - 2 && progress > bgColors[i + 1].top) {
+        i++;
+    }
+    const from = bgColors[i];
+    const to = bgColors[i + 1];
+    const localT = (progress - from.top) / (to.top - from.top);
+
+    const r = Math.round(lerp(from.color[0], to.color[0], localT));
+    const g = Math.round(lerp(from.color[1], to.color[1], localT));
+    const b = Math.round(lerp(from.color[2], to.color[2], localT));
+
+    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
+
+function setupReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+}
+
+
+window.addEventListener('scroll', updateBackground, { passive: true });
+window.addEventListener('load', () => {
+    updateBackground();
+    setupReveal();
+});
+</script>
 
 </body>
 </html>
