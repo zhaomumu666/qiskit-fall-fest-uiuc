@@ -306,6 +306,26 @@ a {
     font-size: 16px;
 }
 
+.schedule-intro {
+    max-width: 760px;
+    font-size: 19px;
+    color: var(--il-blue);
+    margin-bottom: 40px;
+}
+
+.schedule-intro strong {
+    color: var(--il-orange);
+}
+
+.points-badge {
+    background: var(--il-orange);
+    color: var(--il-blue);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
 /* ================================
    SPEAKER SECTION STYLES
    Layout for guest speaker profile cards
@@ -324,17 +344,12 @@ a {
     max-width: 420px;
 }
 
-.speaker-placeholder {
-    aspect-ratio: 1; /* Force square box for placeholder image */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.speaker-photo {
+    width: 100%;
+    aspect-ratio: 1; /* Force square box for consistent, uniform portraits */
+    object-fit: cover;
     background: var(--il-blue);
-    color: var(--il-orange);
-    font-weight: bold;
-    font-size: 24px;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
 
 .speaker-label {
