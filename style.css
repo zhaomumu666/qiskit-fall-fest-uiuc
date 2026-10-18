@@ -96,14 +96,6 @@ a {
     color: var(--il-orange); /* Change text color to orange on mouse hover */
 }
 
-.register-button {
-    background: var(--il-orange);
-    color: var(--il-blue);
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 12px; /* Rounded button corners */
-}
-
 /* ================================
    HERO SECTION STYLES
    Full-screen landing section with page-load fade + slide-up entrance animation

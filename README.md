@@ -60,8 +60,7 @@ There's no need to rush to finish — it's a fun opportunity to make progress an
 
 ## Links
 
-- Register: [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfd_2vK_LkuolOU-jruFH8uS_WP6Ry32f717Vx_cZnZO_Yf4g/viewform?usp=header)
-- Discord: [Join the group](https://discord.gg/P7YU5tuHW)
+- Discord: [Join the group](https://discord.gg/SGK5Cbc8g)
 
 ## Contributing
 
