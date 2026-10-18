@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qiskit Fall Fest @ UIUC</title>
 
+    <!-- Typography: Inter for UI/body text, Space Grotesk for display headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <!-- UIUC Official Brand CSS -->
     <link rel="stylesheet" href="https://cdn.brand.illinois.edu/illinois.css">
     <link rel="stylesheet" href="style.css">
@@ -15,8 +23,8 @@
         /* Base state for scroll reveal elements: hidden and offset downwards */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
         /* Active state: animate into view when element enters viewport */
         .reveal.visible {
@@ -33,12 +41,6 @@
         .hero-load.hero-fade-ready {
             opacity: 1;
             transform: translateY(0);
-        }
-        /* Schedule footnote styling for tentative notice */
-        .schedule-note {
-            margin-top: 30px;
-            color: var(--il-storm);
-            font-size: 16px;
         }
     </style>
 </head>
@@ -67,8 +69,6 @@
         </div>
 
         <nav class="nav-links">
-            <a href="#about">About</a>
-            <a href="#hosts">Hosts</a>
             <a href="#experience">Events</a>
             <a href="#speakers">Speakers</a>
             <a href="#organizers">Team</a>
@@ -82,16 +82,16 @@
             <div class="hero-content-centered">
                 
                 <h1>
-                    UIUC QISKIT FALL FEST
+                    UIUC Qiskit Fall Fest
                 </h1>
                 <p class="hero-subtitle">
-                    From Qubit to Quantum Hardware
+                    To be or not to be — until measured
                 </p>
                 <p class="hero-description">
-                    A week-long beginner-friendly quantum computing event running October 19–25 at UIUC.
-                    We cover quantum nanophotonic devices, hands-on Qiskit coding, quantum optics, advanced
-                    Qiskit applications and an IBM keynote — plus a weekend mini-hackathon.
-                    No prior quantum experience required.
+                    A week-long beginner-friendly quantum computing event running October 19–25 at UIUC,
+                    run by SIGQuantum and sponsored by IBM. We cover hands-on
+                    Qiskit workshops, quantum hardware, and IBM keynote talk for an industry perspective — plus a
+                    weekend mini-hackathon.
                 </p>
                 <div class="hero-details">
                     <div>
@@ -115,47 +115,11 @@
             </div>
         </section>
 
-        <!-- PAGE 2: HOST / ORGANIZATION INTRO
-             Class "reveal" enables scroll animation: animates when scrolling into view -->
-        <section id="hosts" class="section reveal">
-            <p class="section-number section-number-large">01 / HOSTS</p>
-            <h2>Organized by</h2>
-            <div class="host-grid">
-                <div class="host-card">
-                    <img src="assets/images/SIGQuantum_logo.jpg" alt="SIGQuantum">
-                    <h3>SIGQuantum</h3>
-                    <p>ACM@UIUC's Special Interest Group for Quantum Information</p>
-                </div>
-                <!-- Optional: put UIUC logo in middle column here -->
-                <div class="host-card">
-                    <img src="assets/images/IBM_Quantum_logotype_pos_RGB.jpg" alt="IBM Quantum">
-                    <h3>IBM Quantum</h3>
-                    <p>Global quantum research & developer ecosystem behind Qiskit, running Fall Fest events across universities worldwide.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 3: WHY THIS EVENT
-             Class "reveal" enables scroll animation -->
-        <section id="about" class="section about reveal">
-            <p class="section-number section-number-large">02 / WHY THIS EVENT</p>
-            <h2>We focus on quantum computing.</h2>
-            <p>
-                Quantum computing is one of the most important emerging computing paradigms, with applications across chemistry, materials, optimization and cryptography.
-            </p>
-            <p>
-                This event lowers the entry barrier for UIUC students: we avoid heavy math-first teaching, and take you through practical programming, circuits, algorithms and real hardware using Qiskit.
-            </p>
-            <p>
-                We run a full week of in-person sessions plus an optional remote final project.
-            </p>
-        </section>
-
         <!-- PAGE4: THE EXPERIENCE / EVENT LIST
              Class "reveal" enables scroll animation
              Session schedule with tentative notice at bottom -->
         <section id="experience" class="section experience reveal">
-            <p class="section-number section-number-large">03 / THE EXPERIENCE</p>
+            <p class="section-number section-number-large">01 / THE EXPERIENCE</p>
             <h2>Week schedule</h2>
             <p class="schedule-intro">
                 Earn points for every event you attend by filling out our attendance forms.
@@ -245,26 +209,52 @@
         <!-- PAGE5: GUEST SPEAKERS
              Class "reveal" enables scroll animation -->
         <section id="speakers" class="section speaker-section reveal">
-            <p class="section-number section-number-large">04 / GUEST SPEAKERS</p>
+            <p class="section-number section-number-large">02 / GUEST SPEAKERS</p>
             <h2>Speakers</h2>
             <div class="speaker-grid">
                 <div class="speaker-card">
                     <img class="speaker-photo" src="assets/images/bogdanov.jpeg" alt="Prof. Simeon Bogdanov">
-                    <p class="speaker-label">UIUC ECE Faculty · Mon Oct 19</p>
+                    <p class="speaker-role">ECE Faculty</p>
+                    <p class="speaker-day">Monday, Oct 19</p>
                     <h3>Prof. Simeon Bogdanov</h3>
-                    <p>Quantum Nanophotonic Devices — a talk on quantum nanophotonic devices and their role in modern quantum technology.</p>
+                    <p>
+                        Leads the Quantum and Nanoscale Photonics Lab, studying single-photon emitters
+                        and spins coupled to nanophotonic structures for quantum information and sensing.
+                    </p>
+                    <p class="speaker-talk">
+                        <strong>Talk:</strong> how quantum nanophotonic devices harness light–matter
+                        interaction at the nanoscale, and what it takes to build scalable, cryo-free
+                        photonic hardware for quantum networks.
+                    </p>
                 </div>
                 <div class="speaker-card">
                     <img class="speaker-photo" src="assets/images/kwiat.jpeg" alt="Prof. Paul Kwiat">
-                    <p class="speaker-label">UIUC Physics Faculty · Wed Oct 21</p>
+                    <p class="speaker-role">Physics Faculty</p>
+                    <p class="speaker-day">Wednesday, Oct 21</p>
                     <h3>Prof. Paul Kwiat</h3>
-                    <p>Quantum Optics — a talk on quantum optics and its applications in quantum information science.</p>
+                    <p>
+                        John Bardeen Chair in Physics and a pioneer of experimental quantum optics,
+                        working on entangled photons, single-photon sources, and quantum communication.
+                    </p>
+                    <p class="speaker-talk">
+                        <strong>Talk:</strong> quantum optics fundamentals and how entangled photons
+                        enable precision measurement and quantum information science.
+                    </p>
                 </div>
                 <div class="speaker-card">
                     <img class="speaker-photo" src="assets/images/sanskriti.png" alt="Sanskriti Deva">
-                    <p class="speaker-label">IBM · Fri Oct 23</p>
+                    <p class="speaker-role">IBM Quantum</p>
+                    <p class="speaker-day">Friday, Oct 23</p>
                     <h3>Sanskriti Deva</h3>
-                    <p>IBM Product Marketing Manager — keynote on the state of quantum in industry and how to prepare for the quantum world.</p>
+                    <p>
+                        Quantum Product Marketing Manager at IBM Quantum, where she helps launch the
+                        software, hardware, and experiences bringing quantum into industry.
+                    </p>
+                    <p class="speaker-talk">
+                        <strong>Keynote:</strong> the state of quantum in industry, how new hardware
+                        like IBM Quantum System Two is being put to work, and how to prepare for the
+                        quantum world — plus a live Q&amp;A.
+                    </p>
                 </div>
             </div>
         </section>
@@ -291,7 +281,7 @@
         <!-- PAGE7: ORGANIZERS: Lead + Co-organizer with emails
              Class "reveal" enables scroll animation -->
         <section id="organizers" class="section organizers reveal">
-            <p class="section-number">05 / ORGANIZERS</p>
+            <p class="section-number">03 / ORGANIZERS</p>
             <h2>Meet the team.</h2>
             <div class="organizer-grid">
                 <div class="organizer-card">
@@ -316,7 +306,7 @@
     <footer>
         <div>
             <strong>QISKIT FALL FEST @ UIUC</strong>
-            <p>From Qubit to Quantum Hardware.</p>
+            <p>To be or not to be — until measured.</p>
         </div>
         <div>
             <p>University of Illinois Urbana-Champaign</p>
@@ -339,37 +329,7 @@ window.addEventListener('load', function(){
 });
 
 // ======================================================
-// 2. Smooth dynamic background color on scroll
-// ======================================================
-const bgColors = [
-    { top: 0,    color: [80, 110, 160] },
-    { top: 0.2,  color: [160, 180, 210] },
-    { top: 0.45, color: [240, 242, 245] },
-    { top: 0.7,  color: [255, 244, 235] },
-    { top: 1,    color: [255, 170, 120] }
-];
-
-function lerp(a, b, t) { return a + (b - a) * t; }
-
-function updateBackground() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = Math.min(1, Math.max(0, scrollTop / docHeight));
-
-    let i = 0;
-    while (i < bgColors.length - 2 && progress > bgColors[i + 1].top) i++;
-    const from = bgColors[i];
-    const to = bgColors[i + 1];
-    const localT = (progress - from.top) / (to.top - from.top);
-
-    const r = Math.round(lerp(from.color[0], to.color[0], localT));
-    const g = Math.round(lerp(from.color[1], to.color[1], localT));
-    const b = Math.round(lerp(from.color[2], to.color[2], localT));
-    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-}
-
-// ======================================================
-// 3. Scroll Reveal Observer: REPLAY EVERY TIME element enters viewport
+// 2. Scroll Reveal Observer: REPLAY EVERY TIME element enters viewport
 // Add visible class when intersecting, REMOVE when leaving
 // ======================================================
 function setupReveal() {
@@ -389,12 +349,8 @@ function setupReveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
-// Bind events
-window.addEventListener('scroll', updateBackground, { passive:true });
-window.addEventListener('load', () => {
-    updateBackground();
-    setupReveal();
-});
+// Reveal on load
+window.addEventListener('load', setupReveal);
 </script>
 </body>
 </html>

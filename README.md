@@ -2,9 +2,9 @@
 
 Official website and open-source resources for Qiskit Fall Fest @ UIUC.
 
-## From Qubit to Quantum Hardware
+## To be or not to be — until measured
 
-A week-long, beginner-friendly quantum computing event at the University of Illinois Urbana-Champaign, organized by SIGQuantum (ACM@UIUC's Special Interest Group for Quantum Information) and IBM Quantum.
+A week-long, beginner-friendly quantum computing event at the University of Illinois Urbana-Champaign, ran by SIGQuantum (ACM@UIUC's Special Interest Group for Quantum Information) and sponsored by IBM.
 
 Across the week we move through quantum hardware, hands-on Qiskit coding, quantum optics, advanced Qiskit applications, and the state of quantum in industry — closing with a weekend mini-hackathon. No prior quantum experience is required.
 
